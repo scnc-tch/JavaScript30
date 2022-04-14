@@ -37,28 +37,58 @@
     
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
+      //the goal is to console.log() the inventors born in the 15000s
+      //to do this we have to first loop through the array of objects
+      // as we loop, we store the objects that apply to something
+      //we console.log() that something
+
+      let oldAss = inventors.filter( x => x.year < 1600 && x.year > 1499)
+      console.log(oldAss)
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
+     let firstLast = inventors.map( x => `${x.first} ${x.last}`)
+     console.log(firstLast)
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
+     let sorted = inventors.sort((a,b) => b.year - a.year)
+    console.log(sorted)
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
-
+    
+    let sum = inventors.reduce((acc,value) => {
+     return acc + (value.passed - value.year)
+    },0);
+      console.log(sum)
     // 5. Sort the inventors by years lived
+      let yearSort = inventors.sort((a,b) => {
+        return (b.passed - b.year) - (a.passed - a.year)
+      })
+      console.table(yearSort)
 
+      const oldest = inventors.sort(function(a, b) {
+      const lastInventor = a.passed - a.year;
+      const nextInventor = b.passed - b.year;
+      return lastInventor > nextInventor ? -1 : 1;
+    });
+    console.table(oldest);
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
-    // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+    //https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+      let sortingPeeps = people.sort((a,b) => a - b)
+      console.log(sortingPeeps)
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+    let summing = data.reduce((acc,value) => {
+      if (acc === value)
+    })
 
   </script>
 </body>
