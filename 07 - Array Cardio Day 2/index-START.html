@@ -26,16 +26,130 @@
 
     // Some and Every Checks
     // Array.prototype.some() // is at least one person 19 or older?
+    const year = new Date().getFullYear()
+    console.log(year)
+
+    let whoIs = people.some( x => year - x.year >= 19)
+    console.log(whoIs)
+
     // Array.prototype.every() // is everyone 19 or older?
+    let areAll = people.every( x => year - x.year >= 19)
+    console.log(areAll)
 
     // Array.prototype.find()
     // Find is like filter, but instead returns just the one you are looking for
     // find the comment with the ID of 823423
+    let findWho = comments.find( x => x.id === 823423)
+    console.log(findWho)
 
     // Array.prototype.findIndex()
     // Find the comment with this ID
     // delete the comment with the ID of 823423
+    let giveIndx = comments.findIndex( x => x.id === 823423);
+    console.log(giveIndx)
+    console.log(comments[1])
 
+    const characters = [
+    {
+        name: 'Luke Skywalker',
+        height: '172',
+        mass: '77',
+        eye_color: 'blue',
+        gender: 'male',
+    },
+    {
+        name: 'Darth Vader',
+        height: '202',
+        mass: '136',
+        eye_color: 'yellow',
+        gender: 'male',
+    },
+    {
+        name: 'Leia Organa',
+        height: '150',
+        mass: '49',
+        eye_color: 'brown',
+        gender: 'female',
+    },
+    {
+        name: 'Anakin Skywalker',
+        height: '188',
+        mass: '84',
+        eye_color: 'blue',
+        gender: 'male',
+    },
+];
+
+
+// MAP 
+    let allNames = characters.map( x => x.name);
+        console.log(allNames)
+    let allHeights = characters.map( x => x.height)
+        console.log(allHeights)
+    let nameHeights = characters.map( x => ({ name: x.name , height: x.height}) )
+        console.log(nameHeights)
+    let firstNames = characters.map( x => x.name.split(" ")[0] )
+        console.log(firstNames)
+
+// Reduce
+    let totalMass = characters.reduce( (acc, value) => acc + parseInt(value.mass), 0);
+      console.log(totalMass)
+    let totalHeight = characters.reduce( (acc, value) => acc + parseInt(value.height),0)
+      console.log(totalHeight)
+    let totalCharct = characters.reduce( (acc, value) => acc + parseInt(value.name.length),0)
+      console.log(totalCharct)
+   
+
+//filter 
+    let greater100 = characters.filter( x => x.mass > 100)
+      console.log(greater100)
+    let height200 = characters.filter( x => x.height < 200)
+      console.log(height200)
+    let getMale = characters.filter( x => x.gender === "male");
+      console.log(getMale)
+    let getFemale = characters.filter( x => x.gender !== "male")
+      console.log(getFemale)
+
+//sort 
+    //let byName = characters.sort( (a,b) => a.name - b.name);
+     // console.log(byName);
+
+    //let byMass = characters.sort((a,b) => a.mass - b.mass);
+    //  console.log(byMass)
+    //let byHeight = characters.sort((a,b) => a.height - b.height)
+     // console.log(byHeight)
+   // let byGender = characters.sort((a,b) => a.gender - b. gender)
+     // console.log(byGender)
+
+//every
+    let blueEyes = characters.every( x => x.eye_color === "blue")
+    console.log(blueEyes)
+    let mass = characters.every( x => x.mass > 40)
+    console.log(mass)
+    let shorterThan = characters.every( x => x.height < 200)
+    console.log(shorterThan)
+    let genderReveal = characters.every( x => x.gender === "male")
+    console.log(genderReveal)
+
+  //some 
+    let isThereMale = characters.some( x => x.gender === "male");
+    console.log(isThereMale)
+    let isThereBlue = characters.some( x => x.eye_color === "blue");
+    console.log(isThereBlue)
+    let isThereTaller = characters.some(x => x.height > 200);
+    console.log(isThereTaller)
+    let isThereMassive = characters.some( x => x.mass < 50);
+    console.log(isThereMassive)
+
+//find
+    let findisThereMale = characters.find( x => x.gender === "male");
+    console.log(findisThereMale)
+    let findisThereBlue = characters.find( x => x.eye_color === "blue");
+    console.log(findisThereBlue)
+    let findisThereTaller = characters.find(x => x.height > 200);
+    console.log(findisThereTaller)
+    let findisThereMassive = characters.find( x => x.mass < 50);
+    console.log(findisThereMassive)
   </script>
 </body>
 </html>
